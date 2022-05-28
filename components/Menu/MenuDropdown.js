@@ -19,23 +19,9 @@ function MenuDropdown(props) {
       if (dropdown.classList.contains("hidden") === false) {
         dropdown.classList.add("hidden");
 
-        const dropdownType = document.getElementById(type);
-
-        dropdownType.classList.toggle("hidden");
+        toggleDropdown(type);
       }
     });
-  }
-
-  function hoverCloseDropdown(type) {
-    var dropdowns = document.querySelectorAll(".dropdown");
-
-    dropdowns.forEach((dropdown) => {
-      dropdown.classList.add("hidden");
-    });
-
-    const dropdown = document.getElementById(type);
-
-    dropdown.classList.add("hidden");
   }
 
   function closeDropdowns() {
@@ -57,7 +43,7 @@ function MenuDropdown(props) {
     return (
       <div className="h-full">
         <div
-          className="hover:bg-white/30 py-2 px-4 rounded-md shaddow-xl h-full flex items-center"
+          className="py-2 hover:bg-white/20 px-4 rounded-md shaddow-xl backdrop-blur-md h-full flex items-center dropdown-label"
           onClick={() => toggleDropdown(type)}
           onMouseEnter={() => hoverOpenDropdown(type)}
         >
