@@ -1,7 +1,5 @@
 export default function Home() {
   return (
-    <div>
-      <p>this is macos clone type of thing</p>
-    </div>
+    <main className="w-screen h-screen bg-[url('/background.jpg')] bg-center bg-cover bg-no-repeat"></main>
   );
 }
