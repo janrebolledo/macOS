@@ -16,12 +16,12 @@ function MenuDropdown(props) {
     var dropdowns = document.querySelectorAll(".dropdown");
 
     dropdowns.forEach((dropdown) => {
-      if (dropdown.classList.contains("hidden")) {
-        console.log("real");
-      } else {
+      if (dropdown.classList.contains("hidden") === false) {
+        dropdown.classList.add("hidden");
+
         const dropdownType = document.getElementById(type);
 
-        dropdownType.classList.remove("hidden");
+        dropdownType.classList.toggle("hidden");
       }
     });
   }
@@ -55,9 +55,9 @@ function MenuDropdown(props) {
 
   if (props.type === "icon" || "real") {
     return (
-      <div className="h-full" onMouseEnter={() => hoverCloseDropdown(type)}>
+      <div className="h-full">
         <div
-          className="hover:bg-white/30 p-4 rounded-md h-full flex items-center"
+          className="hover:bg-white/30 py-2 px-4 rounded-md shaddow-xl h-full flex items-center"
           onClick={() => toggleDropdown(type)}
           onMouseEnter={() => hoverOpenDropdown(type)}
         >
@@ -65,9 +65,11 @@ function MenuDropdown(props) {
         </div>
         <div
           id={type}
-          className="absolute top-12 hidden rounded-md bg-black/40 backdrop-blur-md shadow-xl border-[1px] border-gray-700 border-solid py-2 px-2 dropdown"
+          className="absolute top-8 hidden rounded-md bg-black/40 backdrop-blur-md shadow-xl border-[1px] border-gray-600 border-solid py-2 px-2 dropdown"
         >
-          <p className="hover:bg-white/30 px-3 py-2 rounded-md">About</p>
+          <p className="hover:bg-blue-500 px-2 py-1 text-xs rounded-sm">
+            About
+          </p>
         </div>
       </div>
     );
