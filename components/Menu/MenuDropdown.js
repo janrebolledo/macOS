@@ -38,6 +38,10 @@ function MenuDropdown(props) {
 
   function openWindow(about) {
     about.firstChild.classList.remove("hiddenImp");
+    var dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dropdown) => {
+      dropdown.classList.add("hidden");
+    });
   }
 
   useEffect(() => {
