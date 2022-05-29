@@ -13,6 +13,10 @@ function Window(props) {
     var window = document.getElementById(name);
 
     window.classList.toggle("fullscreened-window");
+
+    var header = document.querySelector("header");
+
+    header.classList.toggle("menu-fullscreen");
   }
   return (
     <Draggable bounds="main" handle="#handle">
