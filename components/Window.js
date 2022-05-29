@@ -7,7 +7,7 @@ function Window(props) {
   function toggleWindow() {
     var window = document.getElementById(name);
 
-    window.firstChild.classList.toggle("hidden");
+    window.firstChild.classList.toggle("hiddenImp");
   }
   function fullscreenWindow() {
     var window = document.getElementById(name);
@@ -31,11 +31,11 @@ function Window(props) {
           bottomLeft: false,
           topLeft: false,
         }}
-        style={{ position: "absolute" }}
-        className={`top-${top} left-${left} flex items-center justify-center transition-all ease-out`}
+        style={{ position: "absolute", top: top, left: left }}
+        className="flex items-center justify-center transition-all ease-out"
         id={name}
       >
-        <div className="text-white w-full h-full hidden bg-stone-700 rounded-md backdrop-blur-md shadow-xl border-[1px] border-gray-600 border-solid">
+        <div className="text-white w-full h-full hiddenImp bg-stone-700 rounded-md backdrop-blur-md shadow-xl border-[1px] border-gray-600 border-solid">
           <div className="flex flex-row p-4" id="handle">
             <p
               className="bg-red-400 rounded-full w-3 h-3 flex items-center justify-center text-transparent hover:text-red-800 text-[10px] font-rounded cursor-default mr-2"

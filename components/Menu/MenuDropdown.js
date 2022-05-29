@@ -36,8 +36,8 @@ function MenuDropdown(props) {
     });
   }
 
-  function openWindow(props) {
-    props.classList.firstChild.remove("hidden");
+  function openWindow(about) {
+    about.firstChild.classList.remove("hiddenImp");
   }
 
   useEffect(() => {
@@ -69,8 +69,8 @@ function MenuDropdown(props) {
           name="about"
           width="30%"
           height={300}
-          top={12}
-          left={8}
+          top="40vh"
+          left="30vw"
         ></Window>
       </div>
     );
