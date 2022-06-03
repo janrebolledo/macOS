@@ -69,13 +69,12 @@ function MenuDropdown(props) {
             About
           </p>
         </div>
-        <Window
-          name="about"
-          width="30%"
-          height={300}
-          top="40vh"
-          left="30vw"
-        ></Window>
+        <Window name="about" width="30%" height={300} top="40vh" left="30vw">
+          <div className="flex flex-row h-full w-full">
+            <div>real</div>
+            <div></div>
+          </div>
+        </Window>
       </div>
     );
   }
