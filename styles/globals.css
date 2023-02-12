@@ -75,10 +75,11 @@ a {
 }
 
 .fullscreened-window {
+  display: flex !important;
   width: 100% !important;
-  height: calc(100vh - 1rem) !important;
+  height: 100% !important;
   transform: none !important;
-  top: 2rem !important;
+  top: 0 !important;
   left: 0 !important;
   bottom: 0;
   right: 0;
@@ -86,8 +87,4 @@ a {
 
 .menu-fullscreen {
   transform: translateY(-2rem);
-}
-
-.hiddenImp {
-  display: none !important;
 }
