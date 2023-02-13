@@ -1,26 +1,29 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import Dock from "../components/Menu/Dock";
 import Menu from "../components/Menu/Menu";
 import WindowContainer from "../components/WindowContainer";
-import { WindowContext } from "../components/WindowContext";
+import { WindowContext } from "../contexts/WindowContext";
 import "../styles/globals.css";
 
-const windows = [
+const placeholderWindows = [
   {
     name: "window",
     text: "dogs > cats",
     state: "active",
+    showInDock: true,
   },
   {
     name: "free minecraft",
     text: "warriors",
     state: "minimized",
+    showInDock: false,
   },
 ];
 
 function App({ Component, pageProps }) {
+  const [windows, setWindows] = useState(placeholderWindows);
   return (
-    <WindowContext.Provider value={windows}>
+    <WindowContext.Provider value={{ windows, setWindows }}>
       <Menu />
       <Dock />
       <WindowContainer />

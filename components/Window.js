@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
 import Draggable from "react-draggable";
 import { Resizable } from "re-resizable";
-import { WindowContext } from "./WindowContext";
+import { WindowContext } from "../contexts/WindowContext";
+import { updateWindowState } from "../helpers/updateWindowStateContext";
 
 function Window({ window }) {
   const { name, text, state } = window;
 
   const [windowState, setWindowState] = useState(state);
-  const [context, setContext] = useContext(WindowContext);
+  const { windows, setWindows } = useContext(WindowContext);
 
   function handleState(newState) {
     if (newState === "closed") {
@@ -26,41 +27,50 @@ function Window({ window }) {
       var newState = "active";
     }
 
-    const newWindow = { ...context, state: newState };
+    // const updatedWindow = windows.findIndex(
+    //   (object) => object.name == window.name
+    // );
+    // const updatedWindows = (windows[updatedWindow].state = windowState);
 
-    setContext(newWindow);
+    // setWindows(windows);
+
+    updateWindowState(name, windowState);
   }
 
   return (
     <Draggable handle="#handle">
       <Resizable
         // defaultSize={{ width: width, height: height }}
-        maxHeight={1080}
+        defaultSize={{ width: 300, height: 250 }}
+        minWidth={300}
+        minHeight={250}
         bounds="main"
-        className={`flex items-center justify-center absolute top-24 left-24 ${
-          windowState === "active" ? "block" : "hidden"
+        className={`items-center justify-center absolute top-24 left-24 ${
+          windowState === "active" ? "flex" : "hidden"
         } ${windowState === "maximized" ? "fullscreened-window" : ""}`}
       >
         <div className="text-white w-full h-full min-w-[300px] min-h-[250] bg-stone-700 rounded-md backdrop-blur-md shadow-xl border-[1px] border-gray-600 border-solid">
           <div className="flex flex-row items-center">
-            <p
-              onClick={() => handleState("closed")}
-              className="bg-red-400 ml-4 my-4 rounded-full min-w-[0.75em] min-h-[0.75em] w-3 h-3 flex items-center justify-center text-transparent hover:text-red-800 text-[10px] font-rounded cursor-default mr-2"
-            >
-              &times;
-            </p>
-            <p
-              onClick={() => handleState("minimized")}
-              className="bg-yellow-400 my-4 rounded-full min-w-[0.75em] min-h-[0.75em] w-3 h-3 flex items-center justify-center text-transparent hover:text-yellow-800 text-[10px] font-rounded cursor-default mr-2"
-            >
-              -
-            </p>
-            <p
-              onClick={() => handleState("maximized")}
-              className="bg-green-500 my-4 rounded-full min-w-[0.75em] min-h-[0.75em] w-3 h-3 flex items-center justify-center text-transparent hover:text-green-800 text-[10px] font-rounded cursor-default"
-            >
-              ⤡
-            </p>
+            <div className="ml-4 gap-2 my-4 flex flex-row items-center">
+              <p
+                onClick={() => handleState("closed")}
+                className="bg-red-400 rounded-full min-w-[0.75em] min-h-[0.75em] w-3 h-3 flex items-center justify-center text-transparent hover:text-red-800 text-[10px] font-rounded cursor-default"
+              >
+                &times;
+              </p>
+              <p
+                onClick={() => handleState("minimized")}
+                className="bg-yellow-400 rounded-full min-w-[0.75em] min-h-[0.75em] w-3 h-3 flex items-center justify-center text-transparent hover:text-yellow-800 text-[10px] font-rounded cursor-default"
+              >
+                -
+              </p>
+              <p
+                onClick={() => handleState("maximized")}
+                className="bg-green-500 rounded-full min-w-[0.75em] min-h-[0.75em] w-3 h-3 flex items-center justify-center text-transparent hover:text-green-800 text-[10px] font-rounded cursor-default"
+              >
+                ⤡
+              </p>
+            </div>
             <span className="w-full h-full m-0" id="handle">
               &nbsp;
             </span>
