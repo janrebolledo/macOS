@@ -7,8 +7,8 @@ import "../styles/globals.css";
 
 const placeholderWindows = [
   {
-    name: "window",
-    text: "dogs > cats",
+    name: "to do!",
+    text: "update dock icons when context is updated",
     state: "active",
     showInDock: true,
   },

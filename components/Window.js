@@ -30,7 +30,6 @@ function Window({ window }) {
     windows[updatedWindow].state = newState;
 
     setWindows(windows);
-    console.log(windows);
   }
 
   return (
