@@ -15,7 +15,7 @@ const placeholderWindows = [
   {
     name: "free minecraft",
     text: "warriors",
-    state: "minimized",
+    state: "closed",
     showInDock: false,
   },
 ];

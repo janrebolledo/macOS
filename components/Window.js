@@ -27,14 +27,7 @@ function Window({ window }) {
       var newState = "active";
     }
 
-    // const updatedWindow = windows.findIndex(
-    //   (object) => object.name == window.name
-    // );
-    // const updatedWindows = (windows[updatedWindow].state = windowState);
-
-    // setWindows(windows);
-
-    updateWindowState(name, windowState);
+    updateWindowState(windows, name, windowState);
   }
 
   return (
