@@ -7,7 +7,7 @@ function Dock() {
 
   return (
     <footer className="w-full h-8 flex flex-row items-center justify-center text-white px-1 absolute bottom-[4%]">
-      <nav className="h-full flex flex-row items-center justify-center gap-4 bg-black/20 rounded-xl backdrop-blur-md shadow-xl border-[1px] border-gray-600 border-solid px-4 py-10">
+      <nav className="h-full flex flex-row items-center justify-center gap-4 bg-black/20 rounded-3xl backdrop-blur-md shadow-xl border-[1px] border-gray-600 border-solid px-4 py-10">
         {windows.map((icon, index) => (
           <Icon icon={icon} key={index} />
         ))}
