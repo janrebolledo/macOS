@@ -11,12 +11,20 @@ const placeholderWindows = [
     text: "update dock icons when context is updated",
     state: "active",
     showInDock: true,
+    menuItems: [
+      { title: "File", children: ["Close Window", "New"] },
+      { title: "Help", children: ["Help", "Documentation"] },
+    ],
   },
   {
     name: "free minecraft",
     text: "warriors",
     state: "closed",
     showInDock: false,
+    menuItems: [
+      { title: "File", children: ["Close Window", "New"] },
+      { title: "Help", children: ["Help", "Documentation"] },
+    ],
   },
 ];
 
