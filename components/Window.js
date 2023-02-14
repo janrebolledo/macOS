@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import Draggable from "react-draggable";
 import { Resizable } from "re-resizable";
 import { WindowContext } from "../contexts/WindowContext";
-import { updateWindowState } from "../helpers/updateWindowStateContext";
 
 function Window({ window }) {
   const { name, text, state } = window;
@@ -27,7 +26,11 @@ function Window({ window }) {
       var newState = "active";
     }
 
-    updateWindowState(windows, name, windowState);
+    const updatedWindow = windows.findIndex((object) => object.name == name);
+    windows[updatedWindow].state = newState;
+
+    setWindows(windows);
+    console.log(windows);
   }
 
   return (
